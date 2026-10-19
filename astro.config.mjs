@@ -1,25 +1,23 @@
-// @ts-check
+
+ // @ts-check
 import { defineConfig } from 'astro/config';
-
 import tailwindcss from '@tailwindcss/vite';
+import react from '@astrojs/react';
+import netlify from '@astrojs/netlify';
 
-import react from "@astrojs/react";
-
-import netlify from "@astrojs/netlify";
-
-// https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     css: {
-      transformer: "lightningcss"
+      transformer: 'lightningcss',
     },
     build: {
-      cssMinify: "lightningcss"
-    }
+      cssMinify: 'lightningcss',
+    },
   },
   output: 'server',
   devToolbar: { enabled: false },
   integrations: [react()],
   adapter: netlify(),
 });
+
